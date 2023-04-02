@@ -15,6 +15,9 @@ builder.Services
     .AddPersistence()
     .AddPresentation();
 
+builder.Services.AddControllers()
+    .AddApplicationPart(Presentation.AssemblyReference.Assembly);
+
 builder.Host.UseSerilog((context, loggerConfiguration) => 
     loggerConfiguration.ReadFrom.Configuration(context.Configuration));
 
